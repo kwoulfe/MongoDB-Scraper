@@ -37,9 +37,9 @@ app.get('/', function(req, res) {
 });
 
 app.get('/scrape', function(req, res) {
-  request('http://www.digitaljournal.com/', function(error, response, html) {
+  request('https://news.ycombinator.com/news', function(error, response, html) {
     var $ = cheerio.load(html);
-    $('article h3').each(function(i, element) {
+    $('tr td.title').each(function(i, element) {
       var result = {};
 
       result.title = $(this)
