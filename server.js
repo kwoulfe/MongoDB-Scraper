@@ -33,7 +33,7 @@ var Article = require('./models/Article.js');
 
 // = Routes ================================================================
 app.get('/', function(req, res) {
-  res.send(index.html); // sending the html file rather than rendering a handlebars file
+  res.send(index.html);
 });
 
 app.get('/scrape', function(req, res) {
