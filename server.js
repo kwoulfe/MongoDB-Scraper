@@ -19,7 +19,15 @@ app.use(
 app.use(express.static('public')); // (create a public folder and land there)
 
 // = Database configuration ================================================
-mongoose.connect('mongodb://127.0.0.1:27017/mongoScraper');
+
+var databaseUri = 'mongodb://127.0.0.1:27017/mongoScraper';
+
+if (process.env.MONGODB_URI) {
+  mongoose.connect(process.env.MONGODB_URI);
+} else {
+  mongoose.connect(databaseUri);
+}
+
 var db = mongoose.connection;
 
 db.on('error', function(err) {
