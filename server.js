@@ -37,17 +37,17 @@ app.get('/', function(req, res) {
 });
 
 app.get('/scrape', function(req, res) {
-  request('https://news.ycombinator.com/news', function(error, response, html) {
+  request('https://www.pinkbike.com/', function(error, response, html) {
     var $ = cheerio.load(html);
-    $('tr td.title').each(function(i, element) {
+    $('div.news-box2').each(function(i, element) {
       var result = {};
 
       result.title = $(this)
         .children('a')
         .text();
-      result.link = $(this)
-        .children('a')
-        .attr('href');
+      result.summary = $(this)
+        .children('div.news-mt3')
+        .text();
 
       var entry = new Article(result);
 
