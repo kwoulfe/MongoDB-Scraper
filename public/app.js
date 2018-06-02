@@ -1,13 +1,13 @@
 $.getJSON('/articles', function(data) {
   for (var i = 0; i < data.length; i++) {
-    $('#articles').append('<h3>' + data[i].title + '</h3>');
     $('#articles').append(
-      '<p data-id="' + data[i]._id + '">' + data[i].summary + '</p>'
+      '<h3 data-id="' + data[i]._id + '">' + data[i].title + '</h3>'
     );
+    $('#articles').append('<p>' + data[i].summary + '</p>');
   }
 });
 
-$(document).on('click', 'p', function() {
+$(document).on('click', 'h3', function() {
   $('#notes').empty();
   var thisId = $(this).attr('data-id');
 
@@ -16,9 +16,13 @@ $(document).on('click', 'p', function() {
     url: '/articles/' + thisId
   }).done(function(data) {
     console.log(data);
-    $('#notes').append('<h2>' + data.title + '</h2>');
-    $('#notes').append('<input id="titleinput" name="title" >');
-    $('#notes').append('<textarea id="bodyinput" name="body"></textarea>');
+    $('#notes').append('<h3>' + data.title + '</h3>');
+    $('#notes').append(
+      '<input id="titleinput" name="title" placeholder="Note Title" >'
+    );
+    $('#notes').append(
+      '<textarea id="bodyinput" name="body" placeholder="Add a note!"></textarea>'
+    );
     $('#notes').append(
       '<button data-id="' + data._id + '" id="savenote">Save Note</button>'
     );

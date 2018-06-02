@@ -7,6 +7,8 @@ var mongoose = require('mongoose');
 var request = require('request');
 var cheerio = require('cheerio');
 
+var PORT = process.env.PORT || 3030;
+
 // = Middleware (pass everything through the logger first) ================================================
 app.use(logger('dev'));
 app.use(
@@ -105,6 +107,6 @@ app.post('/articles/:id', function(req, res) {
   });
 });
 
-app.listen(3030, function() {
+app.listen(PORT, function() {
   console.log('App running on port 3030!');
 });

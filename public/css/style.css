@@ -28,3 +28,24 @@
   right: 0;
   z-index: -1;
 }
+
+#notes {
+  position: fixed;
+}
+
+#titleinput {
+  float: left;
+  clear: both;
+  margin-bottom: 1rem;
+}
+
+#bodyinput {
+  float: left;
+  clear: both;
+  margin-bottom: 1rem;
+}
+
+#savenote {
+  float: left;
+  clear: both;
+}
