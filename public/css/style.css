@@ -1,0 +1,30 @@
+.jumbotron {
+  padding-bottom: 10rem;
+  padding-top: 10rem;
+  background-size: cover;
+  background-image: url(https://raw.githubusercontent.com/kwoulfe/MongoDB-Scraper/master/public/images/mtb.jpg);
+}
+
+.lead span {
+  color: orange;
+  font-weight: bold;
+}
+
+.bg-cover {
+  background-size: cover;
+  color: white;
+  background-position: center center;
+  position: relative;
+  z-index: -2;
+}
+
+.overlay {
+  background-color: #000;
+  opacity: 0.5;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: -1;
+}
